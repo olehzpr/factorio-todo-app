@@ -1,6 +1,6 @@
 import Card from "../components/Card.tsx";
 
-function ToDo(){
+function Todo(){
     return (
         <div className='bg-[url(https://cdn.factorio.com/assets/blog-sync/fff-401-decorative-shots-03.png)] bg-center bg-repeat h-screen'>
             <div className='flex flex-col justify-center items-center'>
@@ -13,4 +13,4 @@ function ToDo(){
     );
 }
 
-export default ToDo;
+export default Todo;
