@@ -1,5 +1,8 @@
 import Card from "../components/Card.tsx";
 import Button from "../components/Button.tsx";
+import RedButton from "../components/RedButton.tsx";
+import InputText from "../components/InputText.tsx";
+import GreenButton from "../components/GreenButton.tsx";
 
 function Todo() {
   return (
@@ -12,11 +15,11 @@ function Todo() {
         />
       </div>
       <div className="mx-32 flex justify-center items-top flex-col sm:flex-row px-2">
-        <Card label="Max" bottomText={<Button>+</Button>}>
-          <Button>+</Button>
+        <Card label="Max" bottomText={<Button>=</Button>}>
+          <RedButton>x</RedButton>
         </Card>
-        <Card label="Oleh" bottomText="Bruh">
-          Lol
+        <Card label="Oleh" bottomText={<GreenButton>+</GreenButton>}>
+          <InputText></InputText>
         </Card>
       </div>
     </div>
