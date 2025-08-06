@@ -14,12 +14,9 @@ interface ListProps {
 function List({ user }: ListProps) {
   const [data, setData] = useState<TaskItem[]>([]);
   useEffect(() => {
-    fetch("https://skibidiworker.ole9zp.workers.dev/?user=" + user).then(
-      async (res) => {
-        const data = await res.json();
-        return setData(data);
-      },
-    );
+    fetch("https://skibidiworker.ole9zp.workers.dev/?user=" + user)
+      .then((res) => res.json())
+      .then((data) => setData(data));
   }, [user]);
 
   return (
