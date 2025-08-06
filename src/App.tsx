@@ -1,4 +1,4 @@
-import ToDo from "./pages/todo.tsx";
+import ToDo from "./pages/Todo.tsx";
 
 function App() {
   return <ToDo />;
