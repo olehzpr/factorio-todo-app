@@ -1,29 +1,22 @@
 import ListItem from "./ListItem.tsx";
-import { useEffect, useState } from "react";
-
-interface TaskItem {
-  id: number;
-  user: string;
-  task: string;
-}
+import type { Todo } from "./Card.tsx";
 
 interface ListProps {
   user: string;
+  data: Todo[];
+  deleteItem: (id: number) => { restoreDeletedItem: () => void };
 }
 
-function List({ user }: ListProps) {
-  const [data, setData] = useState<TaskItem[]>([]);
-  useEffect(() => {
-    fetch("https://skibidiworker.ole9zp.workers.dev/?user=" + user)
-      .then((res) => res.json())
-      .then((data) => setData(data));
-  }, [user]);
-
+function List({ user, data, deleteItem }: ListProps) {
   return (
     <ul className="list-none space-y-2">
-      {data.map((item) => (
-        <ListItem key={item.id}>{item.task}</ListItem>
-      ))}
+      {data
+        .filter((item) => item.assignee === user)
+        .map((item) => (
+          <ListItem key={item.id} deleteItem={deleteItem} item={item}>
+            {item.title}
+          </ListItem>
+        ))}
     </ul>
   );
 }
